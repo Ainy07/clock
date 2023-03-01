@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Clock</title>
+	<style>
+		#clockContainer{
+			position: relative;
+			height: 40vw;
+			width: 40vw;
+			background-image: url(https://s.omgs.in/wp-content/uploads/2022/05/Transparent.png );
+			background-size: 100%;
+			margin: auto;
+		  }
+		  #hour,#minute,#second{
+            position: absolute;
+            background: black;
+            border-radius: 10px;
+          }
+          #hour{
+            width: 2%;
+            height: 22%;
+            top: 28%;
+            left: 49.6%;
+            opacity: 0.8;
+            transform-origin: bottom;
+          }
+         #minute{
+           width: 1.5%;
+           height: 28%;
+           top: 22%;
+           left: 49.6%;
+           opacity: 0.8;
+           transform-origin: bottom;
+         }
+         #second{
+           width: 1.5%;
+           height: 30%;
+           top: 20%;
+           left: 49.6%;
+           opacity: 0.8;
+           transform-origin: bottom;
+         }
+	</style>
+	<script>
+		setInterval(() => {
+           d=new Date();
+           hrtime=d.getHours();
+           mintime=d.getMinutes();
+           sectime=d.getSeconds();
+           hrrotation=30*hrtime+mintime/2;
+           minrotation=6*mintime;
+           secrotation=6*sectime;
+
+           hour.style.transform=`rotate(${hrrotation}deg)`;
+           minute.style.transform=`rotate(${minrotation}deg)`;
+           second.style.transform=`rotate(${secrotation}deg)`;
+        }, 1000);
+	</script>
+</head>
+<body>
+      <div id="clockContainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+</body>
+</html>
